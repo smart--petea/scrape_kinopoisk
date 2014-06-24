@@ -1,4 +1,3 @@
-
 from scrapy import log
 from scrapy import signals
 from scrapy.exceptions import NotConfigured, DropItem
@@ -15,7 +14,7 @@ class MySQLExporter(object):
 	def from_crawler(cls, crawler):
 		user = crawler.settings.get('MySQLUser', 'root')
 		passwd = crawler.settings.get('MySQLPassw', 'kate')
-		host = crawler.settings.get('MySQLHost', 'locahost')
+		host = crawler.settings.get('MySQLHost', 'localhost')
 		db = crawler.settings.get('MySQLdb', 'kino')
 		mysqlConnection = MySQLdb.connect(host = host, user= user, passwd = passwd, db=db)
 		cls = cls(mysqlConnection)
